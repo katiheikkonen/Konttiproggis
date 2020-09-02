@@ -1,0 +1,29 @@
+{
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "inferenceAccelerators": [],
+    "containerDefinitions": [
+        {
+            "name": "Kontti-proggis",
+            "image": "Kontti-proggis:00000",
+            "resourceRequirements": null,
+            "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": "5000",
+                    "protocol": "tcp"
+                }
+
+            ]
+        }
+    ],
+    "volumes": [],
+    "networkMode": "awsvpc",
+    "memory": "512",
+    "cpu": "256",
+    "executionRoleArn": "arn:aws:iam::821383200340:role/ecsTaskExecutionRole",
+    "family": "kontti-proggis-task-definition",
+    "taskRoleArn": "",
+    "placementConstraints": []
+}

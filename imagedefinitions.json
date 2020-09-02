@@ -1,6 +1,6 @@
 [
   {
-    "name": "sample-app",
-    "imageUri": "821383200340.dkr.ecr.eu-west-1.amazonaws.com/sample-app"
+    "name": "konttiproggis",
+    "imageUri": "821383200340.dkr.ecr.eu-west-1.amazonaws.com/konttiproggis"
   }
 ]

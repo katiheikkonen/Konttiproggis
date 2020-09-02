@@ -6,7 +6,7 @@
     "containerDefinitions": [
         {
             "name": "konttiproggis",
-            "image": "konttiproggis:821383200340",
+            "image": "konttiproggis:latest",
             "resourceRequirements": null,
             "essential": true,
             "portMappings": [

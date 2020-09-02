@@ -5,8 +5,8 @@
     "inferenceAccelerators": [],
     "containerDefinitions": [
         {
-            "name": "Kontti-proggis",
-            "image": "Kontti-proggis:00000",
+            "name": "konttiproggis",
+            "image": "konttiproggis:821383200340",
             "resourceRequirements": null,
             "essential": true,
             "portMappings": [

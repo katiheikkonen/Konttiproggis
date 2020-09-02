@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Creates a DynamoDb Table
+
+Resources:
+  StudentTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: id
+           AttributeType: S
+        - AttributeName: student_name
+           AttributeType: S
+      KeySchema:
+        - AttributeName: id
+           KeyType: HASH
+        - AttributeName: student_name
+           KeyType: RANGE
+      ProvisionedThroughput:
+        ReadCapacityUnits: "1"
+        WriteCapacityUnits: "1"
+      TableName: Student

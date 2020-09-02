@@ -7,14 +7,14 @@ Resources:
     Properties:
       AttributeDefinitions:
         - AttributeName: id
-           AttributeType: S
+          AttributeType: S
         - AttributeName: student_name
-           AttributeType: S
+          AttributeType: S
       KeySchema:
         - AttributeName: id
-           KeyType: HASH
+          KeyType: HASH
         - AttributeName: student_name
-           KeyType: RANGE
+          KeyType: RANGE
       ProvisionedThroughput:
         ReadCapacityUnits: "1"
         WriteCapacityUnits: "1"

@@ -5,8 +5,8 @@
     "inferenceAccelerators": [],
     "containerDefinitions": [
         {
-            "name": "Konttiproggis-cluster",
-            "image": "Konttiproggis-cluster:latest",
+            "name": "latest",
+            "image": "821383200340:latest",
             "resourceRequirements": null,
             "essential": true,
             "portMappings": [

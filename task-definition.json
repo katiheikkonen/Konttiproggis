@@ -7,6 +7,9 @@
         {
             "name": "konttiproggis",
             "image": "konttiproggis:konttiproggis",
+=======
+            "name": "latest",
+            "image": "821383200340:latest",
             "resourceRequirements": null,
             "essential": true,
             "portMappings": [

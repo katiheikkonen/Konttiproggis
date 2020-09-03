@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: Creates a DynamoDb Table
+Description: Creates ECS
 
 Parameters:
   #  Using default VPC and subnets in eu-west-1
@@ -12,42 +12,27 @@ Parameters:
   SubnetB:
     Type: String
     Default: subnet-b65421ec
+  #  IAM task role and task execution role for task definition
   TaskRoleForTaskDefinition:
     Type: String
     Default: arn:aws:iam::821383200340:role/Konttiproggis-task-role
   TaskExecutionRoleForTaskDefinition:
     Type: String
     Default: arn:aws:iam::821383200340:role/ecsTaskExecutionRole
+  #  Latest Docker image located in ECR
   DockerImage:
     Type: String
-    # Docker image located in ECR
     Default: 821383200340.dkr.ecr.eu-west-1.amazonaws.com/konttiproggis:latest
+  #  Opening port 5000 to application
   ContainerPort:
     Type: Number
     Default: 5000
+  #  Service name that can be changed if needed
   ServiceName:
     Type: String
     Default: Konttiproggis-service
 
 Resources:
-#  StudentTable:
-#    Type: AWS::DynamoDB::Table
-#    Properties:
-#      AttributeDefinitions:
-#        - AttributeName: id
-#          AttributeType: S
-#        - AttributeName: student_name
-#          AttributeType: S
-#      KeySchema:
-#        - AttributeName: id
-#          KeyType: HASH
-#        - AttributeName: student_name
-#          KeyType: RANGE
-#      ProvisionedThroughput:
-#        ReadCapacityUnits: "1"
-#        WriteCapacityUnits: "1"
-#      TableName: Student
-
   KonttiproggisCluster:
     Type: AWS::ECS::Cluster
     Properties:
@@ -107,4 +92,3 @@ Resources:
           FromPort: !Ref ContainerPort
           ToPort: !Ref ContainerPort
           CidrIp: 0.0.0.0/0
-

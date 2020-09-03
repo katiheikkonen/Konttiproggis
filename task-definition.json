@@ -5,7 +5,8 @@
     "inferenceAccelerators": [],
     "containerDefinitions": [
         {
-            "name": "konttiproggis"
+
+            "name": "Konttiproggis-service",
             "image": "821383200340.dkr.ecr.eu-west-1.amazonaws.com/konttiproggis:latest",
             "resourceRequirements": null,
             "essential": true,

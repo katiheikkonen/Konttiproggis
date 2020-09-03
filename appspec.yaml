@@ -14,13 +14,13 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t 821383200340.dkr.ecr.eu-west-1.amazonaws.com/konttiproggis:latest .
-      - docker tag 821383200340.dkr.ecr.eu-west-1.amazonaws.com/konttiproggis:latest 821383200340.dkr.ecr.eu-west-1.amazonaws.com/konttiproggis:tagi
+      - docker tag 821383200340.dkr.ecr.eu-west-1.amazonaws.com/konttiproggis:latest 821383200340.dkr.ecr.eu-west-1.amazonaws.com/konttiproggis:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
       - docker push 821383200340.dkr.ecr.eu-west-1.amazonaws.com/konttiproggis:latest
-      - docker push 821383200340.dkr.ecr.eu-west-1.amazonaws.com/konttiproggis:tagi
+      - docker push 821383200340.dkr.ecr.eu-west-1.amazonaws.com/konttiproggis:latest
 artifacts:
   files:
     - imageDetail.json

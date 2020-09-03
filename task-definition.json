@@ -5,6 +5,7 @@
     "inferenceAccelerators": [],
     "containerDefinitions": [
         {
+
             "name": "Konttiproggis-service",
             "image": "821383200340.dkr.ecr.eu-west-1.amazonaws.com/konttiproggis:latest",
             "resourceRequirements": null,
@@ -23,7 +24,7 @@
     "memory": "512",
     "cpu": "256",
     "executionRoleArn": "arn:aws:iam::821383200340:role/ecsTaskExecutionRole",
-    "family": "kontti-proggis-task-definition",
-    "taskRoleArn": "",
+    "family": "konttiproggis-task-definition",
+    "taskRoleArn": "arn:aws:iam::821383200340:role/Konttiproggis-task-role",
     "placementConstraints": []
 }

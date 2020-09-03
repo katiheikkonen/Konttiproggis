@@ -1,22 +1,23 @@
 version: 0.2
+
 phases:
-  install:
-    runtime-versions:
-      python: 3.8
-    commands:
-      - echo "Installing dependencies"
-      - python -m pip install --upgrade pip
-      - pip install flake8 pytest
-      - if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
   pre_build:
     commands:
-      - echo "Testing for syntax errors"
-      - flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-      - flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+      - REPOSITORY_URI=821383200340.dkr.ecr.eu-west-1.amazonaws.com/konttiproggis
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
     commands:
-      - echo "Running unittests"
-#      - pytest -v --cov
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
-      - echo "Tests run succesfully"
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG

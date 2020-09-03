@@ -2,6 +2,10 @@
 venv/
 .gitignore
 DynamoDBTemplate.yaml
+.github/
+buildspec.yml
+imagedefinitions.json
+taskdefinition.json
 
 
 

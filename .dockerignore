@@ -1,11 +1,12 @@
 .idea/*
 venv/
 .gitignore
-DynamoDBTemplate.yaml
+ecs-template.yaml
+dynamodb-template.yaml
 .github/
 buildspec.yml
 imagedefinitions.json
-taskdefinition.json
+appspec.yaml
 
 
 

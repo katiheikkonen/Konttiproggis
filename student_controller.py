@@ -1,12 +1,9 @@
-from flask import Flask, jsonify
-import scan_table
+import boto3
 
-app = Flask(__name__)
+dynamo_client = boto3.client('dynamodb', region_name='eu-west-1')
 
-@app.route('/')
-
+#  function fetches all the information from the DynamoDB-table named Student
 def get_items():
-    return jsonify(scan_table.get_items())
-
-if __name__ == '__main__':
-    app.run()
+    return dynamo_client.scan(
+        TableName='Student'
+    )

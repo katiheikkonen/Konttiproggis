@@ -1,9 +1,19 @@
 import boto3
 
-dynamo_client = boto3.client('dynamodb', region_name='eu-west-1')
+dynamodb = boto3.resource('dynamodb', region_name='eu-west-1')
 
-#  function fetches all the information from the DynamoDB-table named Student
 def get_items():
-    return dynamo_client.scan(
-        TableName='Student'
-    )
+    table = dynamodb.Table('Student')
+    try:
+        table_content = table.scan()
+    except Exception:
+        return {
+            "statusCode": 502,
+            "headers": {},
+            "body": "Error scanning table"
+        }
+    response = {
+        "statusCode": 200,
+        "body": (table_content['Items'])
+    }
+    return response
